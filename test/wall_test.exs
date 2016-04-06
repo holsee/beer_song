@@ -4,5 +4,10 @@ defmodule WallTest do
 
   alias BeerBottles.Wall
 
+  test "can get a wall" do
+    wall = Wall.new
+    assert is_pid(wall) 
+  end
+
 
 end
