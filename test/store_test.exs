@@ -12,7 +12,7 @@ defmodule BeerBottles.StoreTest do
   property "can buy beer from store" do
     store = Store.new
 
-    for_all x in int(0,1000) do
+    for_all x in int(0,500) do
       beers = Store.buy(store, :beer, x)
       Enum.count(beers) == x
     end
