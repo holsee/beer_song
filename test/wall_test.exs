@@ -9,6 +9,16 @@ defmodule WallTest do
     assert is_pid(wall)
   end
 
+  test "can take one down for passing around" do
+    beers = Store.new |> Store.buy(:beer, 99)
+    wall = Wall.new
+    Wall.put_on_wall(wall, beers)
+
+    {beer, remaining} = Wall.take_one_down(wall)
+    assert is_pid(beer)
+    assert 98 == remaining
+  end
+
   property "can put beers on the wall" do
     store = Store.new
 

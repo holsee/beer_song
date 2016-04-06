@@ -15,4 +15,13 @@ defmodule BeerBottles.Wall do
                                end)
   end
 
+  def take_one_down(wall) do
+    Agent.get_and_update(wall, &do_take_one_down/1)
+  end
+
+  def do_take_one_down([]),
+    do: {:none, []}
+  def do_take_one_down([beer|remaining]),
+    do: {{beer, Enum.count(remaining)}, remaining}
+
 end

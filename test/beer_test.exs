@@ -5,9 +5,8 @@ defmodule BeerTest do
   alias BeerBottles.{Beer, Store}
 
   test "can create a beer" do
-    store = Beer.new
-    assert is_pid(store)
+    beer = Beer.new
+    assert is_pid(beer)
   end
-
 
 end
