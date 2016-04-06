@@ -15,6 +15,17 @@ defmodule PersonTest do
     assert :ok == Person.swig(person, beer)
   end
 
+  test "can drink beer and tell us when empty" do
+    person = Person.new
+    beer = Beer.new
+    # assumption beer size 125 and swig size 25
+    Person.swig(person, beer)
+    Person.swig(person, beer)
+    Person.swig(person, beer)
+    Person.swig(person, beer)
+    Person.swig(person, beer)
+    assert :empty == Person.swig(person, beer)
+  end
 
   test "can ask person how pissed they are" do
     person = Person.new

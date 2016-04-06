@@ -22,4 +22,7 @@ defmodule BeerBottles.BeerSong do
 
   end
 
+  def pass_it_around do
+
+  end
 end

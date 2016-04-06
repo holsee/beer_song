@@ -1,7 +1,7 @@
 defmodule BeerBottles.Beer do
   use GenServer
 
-  @bottle_size 25
+  @bottle_size 125
 
   def new do
     {:ok, beer} = start()
@@ -25,7 +25,7 @@ defmodule BeerBottles.Beer do
   #
   #   {:reply, {:ok, 25}, %{state | beer: beer - 25}}
   # end
-  def handle_call(:take_swig, _from, %{beer: 0} = state) do
+  def handle_call({:take_swig, swig_size}, _from, %{beer: 0} = state) do
     {:reply, :empty, state}
   end
 
