@@ -16,6 +16,8 @@ defmodule BeerBottles.Beer do
     GenServer.call(beer, {:take_swig, swig_size})
   end
 
+  # GenServer callbacks
+
   def handle_call({:take_swig, swig_size}, _from, %{beer: beer} = state)
     when beer > 0 and swig_size <= beer do
     {:reply, {:ok, swig_size}, %{state | beer: beer - swig_size}}

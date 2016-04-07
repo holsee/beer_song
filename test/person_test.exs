@@ -27,6 +27,8 @@ defmodule PersonTest do
     assert :empty == Person.swig(person, beer)
   end
 
+  # TODO: given swig size x, amount drank should be <= beer avilable
+
   test "can ask person how pissed they are" do
     person = Person.new
     beer = Beer.new

@@ -31,7 +31,7 @@ defmodule BeerBottles.Person do
                               {:ok, some_beer}
                             :empty ->
                               Logger.info("bottle empty, throwing it at a cat")
-                              # TODO: need to fetch next beer
+                              :erlang.exit(beer, :kill)
                               {:empty, 0}
                           end
     {:reply, status, %{state | consumed: so_far + consumed}}
